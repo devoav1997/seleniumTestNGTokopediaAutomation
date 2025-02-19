@@ -27,9 +27,26 @@ public class TokopediaSteps {
         
     }
 
-    @Then("Search results for {string} are displayed")
-    public void search_results_for_are_displayed(String product) {
+    @And("User clicks on the first product")
+    public void user_clicks_on_the_first_product() {
+        searchPage.clickFirstProduct();
+    }
+    
+    @And("User adds the product to cart")
+    public void user_adds_the_product_to_cart() {
+        searchPage.addToCart();
+    }
+
+    @Then("Product should be added to cart successfully")
+    public void product_should_be_added_to_cart_successfully() {
+        try {
+            Thread.sleep(5000); // Delay 3 detik setelah Enter
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         driver.quit();
     }
+
+
 
 }
